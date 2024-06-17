@@ -11,7 +11,7 @@ function selectOption(option) {
         });
     } else if (option === 'no') {
         // Change text on the "No" button to "You sure?"
-        document.getElementById('no-button').innerText = '나 싫오?'; 
+        document.getElementById('no-button').innerText = 'You sure?'; 
         // Increase font size of "Yes" button
         var yesButton = document.getElementById('yes-button');
         var currentFontSize = window.getComputedStyle(yesButton).getPropertyValue('font-size');
@@ -19,7 +19,7 @@ function selectOption(option) {
         yesButton.style.fontSize = newSize + 'px';
     } else {
         // If neither "Yes" nor "No" was clicked, show an alert message
-        alert('놉');
+        alert('Invalid option!');
     }
 }
 
@@ -30,14 +30,14 @@ function flashRainbowColors(callback) {
     var interval = setInterval(function() {
         document.body.style.backgroundColor = colors[i];
         i = (i + 1) % colors.length;
-    }, 500); // Change color every 500 milliseconds
+    }, 500); // Change color every 200 milliseconds
     setTimeout(function() {
         clearInterval(interval);
         document.body.style.backgroundColor = ''; // Reset background color
         if (callback) {
             callback();
         }
-    }, 5000); // Flash colors for 5 seconds
+    }, 5000); // Flash colors for 2 seconds
 }
 
 // Function to display the cat.gif initially
@@ -75,6 +75,9 @@ function displayCatHeart() {
         document.getElementById('options').style.display = 'none';
     };
 }
+
+// Display the cat.gif initially
+displayCat();
 
 // Display the cat.gif initially
 displayCat();
